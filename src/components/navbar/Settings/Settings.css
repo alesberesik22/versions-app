@@ -1,0 +1,61 @@
+.settings{
+    display: flex;
+}
+form {
+    background-color: rgb(255, 255, 255);
+    padding: 40px 60px;
+    border-radius: 10px;
+    justify-content: center;
+}
+input {
+    width: 100%;
+    display: grid;
+    padding: 15px;
+    margin: 15px 0;
+    margin-left: -10px;
+}
+.DB {
+    position: inherit;
+    align-items: center;
+    width: 23rem;
+    justify-content: center;
+    margin-left: 20rem;
+    margin-top: 2rem;
+    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+h1 {
+    position: relative;
+    top: -25px;
+    text-align: center;
+}
+button{
+    width: 113%;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border: 1px solid rgb(8, 79, 185);
+    color: black;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: -10px;
+}
+.fade {
+    background-color: white;
+    color: black;
+    transition: background-color 0.7s;
+  }
+  
+  .fade:hover {
+    background-color: #004369;
+  }
+  
+  .fade:focus,
+  .fade:active {
+    background-color: black;
+    transition: none;
+  }
