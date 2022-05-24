@@ -82,10 +82,7 @@ const handleSubmit = (e) => {
           <div className='DB'>
             <form id='MySQL' onSubmit={handleSubmit}>
                 <h1>MySQL</h1>
-                <div className='input-data'>
-                    <input placeholder="Database IP address" value={DBIP} onChange={e => setDBIP(e.target.value)}/>
-                <label>Name</label>
-                </div>
+                <input placeholder="Database IP address" value={DBIP} onChange={e => setDBIP(e.target.value)}/>
                 <input placeholder="User name" value={userName} onChange={e => setUserName(e.target.value)}/>
                 <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
                 <input placeholder="Database name" value={DBName} onChange={e => setDBName(e.target.value)}/>
