@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import Input from '../Input.jsx/Input'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import './Settings.css';
@@ -14,6 +13,22 @@ function Settings() {
     const [oracleUserName, setOracleUserName] = useState("");
     const [oraclePassword, setOraclePassword] = useState("");
     const [oracleDBName, setOracleDBName] = useState("");
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/getmysqlconfig").then((res)=> {
+            console.log(res.data);
+            setDBIP(res.data.server);
+            setUserName(res.data.user);
+            setPassword(res.data.password);
+            setDBName(res.data.database);
+        })
+        axios.get("http://localhost:3001/getoracleconfig").then((res)=> {
+            setOracleDBIP(res.data.server);
+            setOracleUserName(res.data.user);
+            setOraclePassword(res.data.password);
+            setOracleDBName(res.data.database);
+        })
+    },[])
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,10 +82,13 @@ const handleSubmit = (e) => {
           <div className='DB'>
             <form id='MySQL' onSubmit={handleSubmit}>
                 <h1>MySQL</h1>
-                <input placeholder="Database IP address" onChange={e => setDBIP(e.target.value)}/>
-                <input placeholder="User name" onChange={e => setUserName(e.target.value)}/>
-                <input placeholder="Password" onChange={e => setPassword(e.target.value)}/>
-                <input placeholder="Database name" onChange={e => setDBName(e.target.value)}/>
+                <div className='input-data'>
+                    <input placeholder="Database IP address" value={DBIP} onChange={e => setDBIP(e.target.value)}/>
+                <label>Name</label>
+                </div>
+                <input placeholder="User name" value={userName} onChange={e => setUserName(e.target.value)}/>
+                <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
+                <input placeholder="Database name" value={DBName} onChange={e => setDBName(e.target.value)}/>
                 <button className='fade'>Save settings</button>
             </form>
         </div>
@@ -79,7 +97,7 @@ const handleSubmit = (e) => {
                 <h1>Oracle</h1>
                 <input placeholder="Database IP address" onChange={e => setOracleDBIP(e.target.value)}/>
                 <input placeholder="User name" onChange={e => setOracleUserName(e.target.value)}/>
-                <input placeholder="Password" onChange={e => setOraclePassword(e.target.value)}/>
+                <input type="password" placeholder="Password" onChange={e => setOraclePassword(e.target.value)}/>
                 <input placeholder="Database name" onChange={e => setOracleDBName(e.target.value)}/>
                 <button className='fade'>Save settings</button>
             </form>

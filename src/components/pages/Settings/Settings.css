@@ -1,5 +1,7 @@
 .settings{
     display: flex;
+    position: relative;
+    top: 0rem;
 }
 form {
     background-color: rgb(255, 255, 255);

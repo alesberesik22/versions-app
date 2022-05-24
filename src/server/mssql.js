@@ -63,16 +63,16 @@ async function getDBUserAsyncFunctio(config,query1,query2) {
 }
 
 app.get("/mysql/SAM_SAM_APP_VERSION", (req,res) => {
-    getDBUserAsyncFunctio(mysqlConfig,"SELECT TOP 3 * FROM SAM_SAM_APP.dbo.AML_APP_VERSIONS ORDER BY UPDATE_DATE DESC",
-    "SELECT TOP 3 * FROM SAM_SAM_PRF.dbo.AML_PROFILES_VERSIONS ORDER BY UPDATE_DATE DESC");
+    getDBUserAsyncFunctio(mysqlConfig,"SELECT TOP 15 * FROM SAM_SAM_APP.dbo.AML_APP_VERSIONS ORDER BY UPDATE_DATE DESC",
+    "SELECT TOP 15 * FROM SAM_SAM_PRF.dbo.AML_PROFILES_VERSIONS ORDER BY UPDATE_DATE DESC");
     res.send(result);
     console.log("****************RESULT****************")
     console.log(result);
 })
 
 app.get("/mysql/SAM_SAM_PRF_VERSION", (req,res) => {
-    getDBUserAsyncFunctio(mysqlConfig,"SELECT TOP 3 * FROM SAM_SAM_APP.dbo.AML_APP_VERSIONS ORDER BY UPDATE_DATE DESC",
-    "SELECT TOP 3 * FROM SAM_SAM_PRF.dbo.AML_PROFILES_VERSIONS ORDER BY UPDATE_DATE DESC");
+    getDBUserAsyncFunctio(mysqlConfig,"SELECT TOP 15 * FROM SAM_SAM_APP.dbo.AML_APP_VERSIONS ORDER BY UPDATE_DATE DESC",
+    "SELECT TOP 15 * FROM SAM_SAM_PRF.dbo.AML_PROFILES_VERSIONS ORDER BY UPDATE_DATE DESC");
     res.send(result2);
     console.log("****************RESULT2****************")
     console.log(result2);
